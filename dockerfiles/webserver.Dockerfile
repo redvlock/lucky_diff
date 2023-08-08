@@ -34,7 +34,7 @@ RUN shards build --production --static --release
 RUN mv ./bin/webserver /usr/local/bin/webserver
 
 # Serve the application binary
-FROM alpine as webserver
+FROM alpine:3.18.3 as webserver
 WORKDIR /app
 RUN apk --no-cache add diffutils
 COPY --from=lucky_tasks_build /usr/local/bin/lucky /usr/local/bin/lucky
